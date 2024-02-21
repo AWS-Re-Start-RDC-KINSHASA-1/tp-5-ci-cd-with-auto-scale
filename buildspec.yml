@@ -4,9 +4,9 @@ phases:
   pre_build:
     commands:
       # Install AWS CLI
-      - apt-get update && apt-get install -y awscli
+      - yum install -y awscli
 
   build:
     commands:
       # Modify the minimum size of Auto Scaling Group
-      - aws autoscaling update-auto-scaling-group --auto-scaling-group-name your-auto-scaling-group-name --min-size your-new-min-size
+      - aws autoscaling update-auto-scaling-group --auto-scaling-group-name myAutoScale --min-size 4
