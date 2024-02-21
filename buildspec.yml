@@ -12,3 +12,7 @@ phases:
       - aws autoscaling update-auto-scaling-group --auto-scaling-group-name myAutoScale --min-size 4
       - sleep 30
       - aws autoscaling update-auto-scaling-group --auto-scaling-group-name myAutoScale --min-size 2
+      - sleep 30
+      - aws autoscaling update-auto-scaling-group --auto-scaling-group-name myAutoScale --max-size 2 
+      - sleep 30
+      - aws autoscaling update-auto-scaling-group --auto-scaling-group-name myAutoScale --max-size 4
