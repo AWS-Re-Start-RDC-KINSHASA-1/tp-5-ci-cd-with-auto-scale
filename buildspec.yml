@@ -1,26 +1,12 @@
 version: 0.2
 
 phases:
-  install:
-    commands:
-      - echo "Install phase"
-      # Add any installation commands here, if needed
-
   pre_build:
     commands:
-      - echo "Pre-build phase"
-      # Add any pre-build commands here, if needed
+      # Install AWS CLI
+      - apt-get update && apt-get install -y awscli
 
   build:
     commands:
-      - echo "Build phase"
-      # Add your build commands here
-
-  post_build:
-    commands:
-      - echo "Post-build phase"
-      # Add any post-build commands here, if needed
-      # You can use stress tool to overload CPU, install it if not available
-      - sudo yum install stress -y
-      # Run stress test to overload the CPU for 60 seconds
-      - stress --cpu 4 --timeout 60s
+      # Modify the minimum size of Auto Scaling Group
+      - aws autoscaling update-auto-scaling-group --auto-scaling-group-name your-auto-scaling-group-name --min-size your-new-min-size
